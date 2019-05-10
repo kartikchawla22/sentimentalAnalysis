@@ -111,8 +111,8 @@ getNonce = () => {
 getSignature = (requestUrl, query, lat, lng) => {
     let url = requestUrl;
     let parameters = {
-            oauth_consumer_key: 'sjfeQPOA19HdU5XzIcS4mDQij',
-            oauth_token: '846443217021276160-nnCEBqQNI39uDl63ELOMPoFMgY7A4QL',
+            oauth_consumer_key: 'WAONpFTgKyy1qxyzrOiAOWyV4',
+            oauth_token: '846443217021276160-jKhJ7AbmYfYPd1SnuzzTEHZjd9O2jlW',
             oauth_nonce: getNonce(),
             oauth_timestamp: parseInt(Date.now() / 1000),
             oauth_signature_method: 'HMAC-SHA1',
@@ -121,8 +121,8 @@ getSignature = (requestUrl, query, lat, lng) => {
             geocode: lat + ',' + lng + ',10km',
             count: '30'
         },
-        consumerSecret = 'kaDNN0RrsuevZaoAOMcv1W3fZ71pePZy3AgayAEVFIgfMnUAPH',
-        tokenSecret = 'dqVN2CjsJ2QhYUfUw8EXl4Z3rveSrRU6MfvS6wFFTsdzD';
+        consumerSecret = 'puDbIshWHkYLLqAcxTxcoCdmLphUyUYmTlJ5L0COAtEe1CNCFA',
+        tokenSecret = 'co4bCGZr4rUM90TQX0M53ZOYyOY1Wx7yL5ozG2j1I8eUI';
     let signature = oauthSignature.generate('GET', url, parameters, consumerSecret, tokenSecret, {
         encodeSignature: false
     })
