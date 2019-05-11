@@ -67,21 +67,25 @@ exports.createGraph = (req, res) => {
             }).then((result) => {
                 let positive = 0;
                 let negative = 0;
+                let neutral  = 0;
                 result.map((data) => {
                     if(data){
-                        if (data.sentimentScore >= 0) {
+                        if (data.sentimentScore > 0) {
                             positive++;
-                        } else {
+                        } else if (data.sentimentScore < 0){
                             negative++;
+                        } else {
+                            neutral++;
                         }
                     }
                 })
                 let arr = [];
                 positive = positive > 0 ? positive : 0.001;
                 negative = negative > 0 ? negative : 0.001;
+                neutral = neutral > 0 ? neutral : 0.001;
                 arr.push(positive);
                 arr.push(negative);
-
+                arr.push(neutral);
                 res.json({
                     data:{
                         arr,
